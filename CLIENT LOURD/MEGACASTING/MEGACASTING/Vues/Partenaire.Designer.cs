@@ -71,6 +71,7 @@
             this.dataGridViewPartenaire.RowHeadersVisible = false;
             this.dataGridViewPartenaire.RowHeadersWidth = 51;
             this.dataGridViewPartenaire.RowTemplate.Height = 29;
+            this.dataGridViewPartenaire.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewPartenaire.Size = new System.Drawing.Size(495, 323);
             this.dataGridViewPartenaire.TabIndex = 0;
             this.dataGridViewPartenaire.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPartenaire_CellClick);

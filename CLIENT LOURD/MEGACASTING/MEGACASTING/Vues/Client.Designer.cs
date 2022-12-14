@@ -99,6 +99,7 @@
             this.dataGridViewClient.RowHeadersVisible = false;
             this.dataGridViewClient.RowHeadersWidth = 51;
             this.dataGridViewClient.RowTemplate.Height = 29;
+            this.dataGridViewClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewClient.Size = new System.Drawing.Size(672, 343);
             this.dataGridViewClient.TabIndex = 1;
             this.dataGridViewClient.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPartenaire_CellClick);
