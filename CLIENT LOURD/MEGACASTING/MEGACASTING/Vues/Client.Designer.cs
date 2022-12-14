@@ -61,10 +61,10 @@
             this.labelSiret = new System.Windows.Forms.Label();
             this.textBoxCity = new System.Windows.Forms.TextBox();
             this.labelCity = new System.Windows.Forms.Label();
-            this.textBoxContrat = new System.Windows.Forms.TextBox();
             this.labelContrat = new System.Windows.Forms.Label();
             this.textBoxRestant = new System.Windows.Forms.TextBox();
             this.labelRestant = new System.Windows.Forms.Label();
+            this.comboBoxContract = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -398,14 +398,6 @@
             this.labelCity.TabIndex = 23;
             this.labelCity.Text = "City :";
             // 
-            // textBoxContrat
-            // 
-            this.textBoxContrat.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxContrat.Location = new System.Drawing.Point(817, 379);
-            this.textBoxContrat.Name = "textBoxContrat";
-            this.textBoxContrat.Size = new System.Drawing.Size(125, 27);
-            this.textBoxContrat.TabIndex = 24;
-            // 
             // labelContrat
             // 
             this.labelContrat.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -434,15 +426,25 @@
             this.labelRestant.TabIndex = 27;
             this.labelRestant.Text = "Restant :";
             // 
+            // comboBoxContract
+            // 
+            this.comboBoxContract.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxContract.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxContract.FormattingEnabled = true;
+            this.comboBoxContract.Location = new System.Drawing.Point(817, 377);
+            this.comboBoxContract.Name = "comboBoxContract";
+            this.comboBoxContract.Size = new System.Drawing.Size(125, 28);
+            this.comboBoxContract.TabIndex = 28;
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 555);
+            this.Controls.Add(this.comboBoxContract);
             this.Controls.Add(this.labelRestant);
             this.Controls.Add(this.textBoxRestant);
             this.Controls.Add(this.labelContrat);
-            this.Controls.Add(this.textBoxContrat);
             this.Controls.Add(this.labelCity);
             this.Controls.Add(this.textBoxCity);
             this.Controls.Add(this.labelSiret);
@@ -498,7 +500,6 @@
         private Label labelSiret;
         private TextBox textBoxCity;
         private Label labelCity;
-        private TextBox textBoxContrat;
         private Label labelContrat;
         private DataGridViewTextBoxColumn Identifiant;
         private DataGridViewTextBoxColumn Nom;
@@ -513,5 +514,6 @@
         private DataGridViewTextBoxColumn Restant;
         private TextBox textBoxRestant;
         private Label labelRestant;
+        private ComboBox comboBoxContract;
     }
 }

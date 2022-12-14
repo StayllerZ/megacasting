@@ -130,6 +130,16 @@
             "rid": "win"
           }
         }
+      },
+      "MEGACASTINGLIB/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/MEGACASTINGLIB.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MEGACASTINGLIB.dll": {}
+        }
       }
     }
   },
@@ -446,10 +456,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "MEGACASTINGLIB/1.0.0": {
+      "type": "project",
+      "path": "../MEGACASTINGLIB/MEGACASTINGLIB.csproj",
+      "msbuildProject": "../MEGACASTINGLIB/MEGACASTINGLIB.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "MEGACASTINGLIB >= 1.0.0",
       "System.Data.SqlClient >= 4.8.5"
     ]
   },
@@ -484,7 +500,11 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Axel\\Desktop\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTINGLIB\\MEGACASTINGLIB.csproj": {
+              "projectPath": "C:\\Users\\Axel\\Desktop\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTINGLIB\\MEGACASTINGLIB.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

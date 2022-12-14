@@ -58,6 +58,7 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,7 +201,7 @@
             this.Contrat.MinimumWidth = 6;
             this.Contrat.Name = "Contrat";
             this.Contrat.ReadOnly = true;
-            this.Contrat.Width = 65;
+            this.Contrat.Width = 55;
             // 
             // textBoxID
             // 
@@ -351,11 +352,20 @@
             this.textBox12.Size = new System.Drawing.Size(125, 27);
             this.textBox12.TabIndex = 22;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(813, 492);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(151, 28);
+            this.comboBox1.TabIndex = 23;
+            // 
             // Casting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 555);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox12);
             this.Controls.Add(this.textBox11);
             this.Controls.Add(this.textBox10);
@@ -396,6 +406,10 @@
         private Button buttonAjouter;
         private Button buttonModifier;
         private Button buttonSupprimer;
+        private TextBox textBox9;
+        private TextBox textBox10;
+        private TextBox textBox11;
+        private TextBox textBox12;
         private DataGridViewTextBoxColumn Identifiant;
         private DataGridViewTextBoxColumn Libelle;
         private DataGridViewTextBoxColumn Debut;
@@ -409,9 +423,6 @@
         private DataGridViewTextBoxColumn Client;
         private DataGridViewTextBoxColumn Metier;
         private DataGridViewTextBoxColumn Contrat;
-        private TextBox textBox9;
-        private TextBox textBox10;
-        private TextBox textBox11;
-        private TextBox textBox12;
+        private ComboBox comboBox1;
     }
 }

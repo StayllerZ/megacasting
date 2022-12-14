@@ -17,7 +17,46 @@ namespace MEGACASTING.Vues
     {
 
 
+        private void RemplirComboBox()
+        {
+            SqlConnection connection = new SqlConnection("Server= localhost; Database= MegaCastingDB; Integrated Security=True;");
 
+            SqlCommand command = new SqlCommand
+            {
+                Connection = connection,
+                CommandText = @"SELECT ID_PACK, LIBELLE_PACK
+                                FROM PACK_CASTING"
+            };
+
+            connection.Open();
+
+            SqlDataReader query = command.ExecuteReader();
+
+            List<ComboBoxClientDB> ComboBoxList = new List<ComboBoxClientDB>();
+
+            while (query.Read())
+            {
+                int identifier = query.GetInt32("ID_PACK");
+                ComboBoxClientDB commandMessage = new ComboBoxClientDB()
+                {
+                    Id = identifier,
+                    Name = query.GetString("LIBELLE_PACK"),
+                };
+                ComboBoxList.Add(commandMessage);
+            }
+
+            connection.Close();
+
+            foreach (ComboBoxClientDB ComboItem in ComboBoxList)
+            {
+                comboBoxContract.Items.Add(ComboItem);
+            }
+
+
+
+
+
+        }
 
         private void RemplirDatagrid()
         {
@@ -82,6 +121,7 @@ namespace MEGACASTING.Vues
         {
             InitializeComponent();
             RemplirDatagrid();
+            RemplirComboBox();
         }
 
         private void buttonAjouter_Click(object sender, EventArgs e)
@@ -95,8 +135,9 @@ namespace MEGACASTING.Vues
             string siret = textBoxSiret.Text;
             string city = textBoxCity.Text;
             string login = textBoxLogin.Text;
-            string id_pack = textBoxContrat.Text;
+            // string id_pack = textBoxContrat.Text;
             string nb_rest_off = textBoxRestant.Text;
+            int id_packCast = ((ComboBoxClientDB)this.comboBoxContract.SelectedItem).Id;
             
 
             SqlConnection connection = new SqlConnection("Server= localhost; Database= MegaCastingDB; Integrated Security=True;");
@@ -118,7 +159,7 @@ namespace MEGACASTING.Vues
             command.Parameters.AddWithValue("@siret", siret);
             command.Parameters.AddWithValue("@login", login);
             command.Parameters.AddWithValue("@city", city);
-            command.Parameters.AddWithValue("@id_pack", id_pack);
+            command.Parameters.AddWithValue("@id_pack", id_packCast);
             command.Parameters.AddWithValue("@nb_rest_off", nb_rest_off);
 
             connection.Open();
@@ -142,9 +183,10 @@ namespace MEGACASTING.Vues
             string siret = textBoxSiret.Text;
             string city = textBoxCity.Text;
             string login = textBoxLogin.Text;
-            string id_pack = textBoxContrat.Text;
+            // string id_pack = textBoxContrat.Text;
             string nb_rest_off = textBoxRestant.Text;
             int id = Int32.Parse(textBoxID.Text);
+            int id_packCast = ((ComboBoxClientDB)this.comboBoxContract.SelectedItem).Id;
 
             SqlConnection connection = new SqlConnection("Server= localhost; Database= MegaCastingDB; Integrated Security=True;");
 
@@ -162,7 +204,7 @@ namespace MEGACASTING.Vues
             command.Parameters.AddWithValue("@siret", siret);
             command.Parameters.AddWithValue("@login", login);
             command.Parameters.AddWithValue("@city", city);
-            command.Parameters.AddWithValue("@id_pack", id_pack);
+            command.Parameters.AddWithValue("@id_pack", id_packCast);
             command.Parameters.AddWithValue("@nb_rest_off", nb_rest_off);
             command.Parameters.AddWithValue("@id", id);
 
@@ -217,6 +259,7 @@ namespace MEGACASTING.Vues
             string siret = Convert.ToString(selectedRow.Cells["Siret"].Value);
             string city = Convert.ToString(selectedRow.Cells["City"].Value);
             string contrat = Convert.ToString(selectedRow.Cells["Contrat"].Value);
+            Int32 contratInt = Convert.ToInt32(contrat);
             string restant = Convert.ToString(selectedRow.Cells["Restant"].Value);
             textBoxID.Text = id;
             textBoxName.Text = nom;
@@ -226,9 +269,10 @@ namespace MEGACASTING.Vues
             textBoxPassword.Text = password;
             textBoxUrl.Text = url;
             textBoxCity.Text = city;
-            textBoxContrat.Text = contrat;
+            // textBoxContrat.Text = contrat;
             textBoxRestant.Text = restant;
             textBoxSiret.Text = siret;
+            comboBoxContract.SelectedIndex = contratInt- 1;
         }
 
     }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MEGACASTING.Class;
+using MEGACASTINGLIB;
 
 namespace MEGACASTING.Vues
 {
@@ -178,16 +179,6 @@ namespace MEGACASTING.Vues
             textBox11.Text = Metier;
             textBox12.Text = Contrat;
         }
-
-
-
-
-
-
-
-
-
-
 
         private void RemplirDatagrid()
         {
