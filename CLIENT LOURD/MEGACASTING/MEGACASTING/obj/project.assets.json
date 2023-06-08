@@ -476,11 +476,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Axel\\Desktop\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTING\\MEGACASTING.csproj",
+      "projectUniqueName": "C:\\Users\\Axel\\Desktop\\tout\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTING\\MEGACASTING.csproj",
       "projectName": "MEGACASTING",
-      "projectPath": "C:\\Users\\Axel\\Desktop\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTING\\MEGACASTING.csproj",
+      "projectPath": "C:\\Users\\Axel\\Desktop\\tout\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTING\\MEGACASTING.csproj",
       "packagesPath": "C:\\Users\\Axel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Axel\\Desktop\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTING\\obj\\",
+      "outputPath": "C:\\Users\\Axel\\Desktop\\tout\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTING\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -501,8 +501,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\Axel\\Desktop\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTINGLIB\\MEGACASTINGLIB.csproj": {
-              "projectPath": "C:\\Users\\Axel\\Desktop\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTINGLIB\\MEGACASTINGLIB.csproj"
+            "C:\\Users\\Axel\\Desktop\\tout\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTINGLIB\\MEGACASTINGLIB.csproj": {
+              "projectPath": "C:\\Users\\Axel\\Desktop\\tout\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTINGLIB\\MEGACASTINGLIB.csproj"
             }
           }
         }

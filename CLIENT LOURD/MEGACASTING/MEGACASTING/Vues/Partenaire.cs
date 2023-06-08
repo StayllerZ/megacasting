@@ -16,16 +16,17 @@ namespace MEGACASTING.Vues
 
         private void RemplirDatagrid()
         {
-            SqlConnection connection = new SqlConnection("Server= localhost; Database= MegaCastingDB; Integrated Security=True;");
+            SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
 
             SqlCommand command = new SqlCommand
             {
                 Connection = connection,
                 CommandText = @"SELECT *
-                                FROM PARTENAIRES_DIFFUSION"
+                                FROM PartenaireDiffusion"
             };
 
             connection.Open();
+            Console.WriteLine("réussi");
 
             SqlDataReader query = command.ExecuteReader();
 
@@ -33,13 +34,13 @@ namespace MEGACASTING.Vues
 
             while (query.Read())
             {
-                int identifier = query.GetInt32("ID_PART");
+                int identifier = query.GetInt32("Identifiant");
                 PartenaireDB commandMessage = new PartenaireDB()
                 {
                     Id = identifier,
-                    Name = query.GetString("NOM"),
-                    Mail = query.GetString("MAIL_PART"),
-                    Phone = query.GetString("TEL_PART")
+                    Name = query.GetString("nom"),
+                    Mail = query.GetString("mail"),
+                    Phone = query.GetString("telephone")
                 };
                 PartenaireList.Add(commandMessage);
             }
@@ -68,13 +69,13 @@ namespace MEGACASTING.Vues
             string mail = textBoxMail.Text;
             int id = Int32.Parse(textBoxID.Text);
 
-            SqlConnection connection = new SqlConnection("Server= localhost; Database= MegaCastingDB; Integrated Security=True;");
+            SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
 
             SqlCommand command = new SqlCommand();
 
             command.Connection = connection;
 
-            command.CommandText = @"INSERT INTO PARTENAIRES_DIFFUSION(NOM, MAIL_PART, TEL_PART)
+            command.CommandText = @"INSERT INTO PartenaireDiffusion(nom, mail, telephone)
                                     VALUES( @nom, @mail, @tel);";
 
             command.Parameters.AddWithValue("@nom", nom);
@@ -111,13 +112,13 @@ namespace MEGACASTING.Vues
         {
             int id = Int32.Parse(textBoxID.Text);
 
-            SqlConnection connection = new SqlConnection("Server= localhost; Database= MegaCastingDB; Integrated Security=True;");
+            SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
 
             SqlCommand command = new SqlCommand();
 
             command.Connection = connection;
 
-            command.CommandText = @"DELETE FROM PARTENAIRES_DIFFUSION WHERE ID_PART = @id;";
+            command.CommandText = @"DELETE FROM PartenaireDiffusion WHERE identifiant = @id;";
 
             command.Parameters.AddWithValue("@id", id);
 
@@ -139,13 +140,13 @@ namespace MEGACASTING.Vues
             string mail = textBoxMail.Text;
             int id = Int32.Parse(textBoxID.Text);
 
-            SqlConnection connection = new SqlConnection("Server= localhost; Database= MegaCastingDB; Integrated Security=True;");
+            SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
 
             SqlCommand command = new SqlCommand();
 
             command.Connection = connection;
 
-            command.CommandText = @"UPDATE PARTENAIRES_DIFFUSION SET NOM = @nom, MAIL_PART = @mail, TEL_PART = @tel WHERE ID_PART = @id;";
+            command.CommandText = @"UPDATE PARTENAIREDIFFUSION SET nom = @nom, mail = @mail, telephone = @tel WHERE identifiant = @id;";
 
             command.Parameters.AddWithValue("@id", id);
             command.Parameters.AddWithValue("@nom", nom);

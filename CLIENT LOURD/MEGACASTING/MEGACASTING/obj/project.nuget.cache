@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/FT2FoMmeoZpaTR3AVwKbZsMnptZRAI/Qi9Ec95jPs1L5zuQjqnYMNyFTRFvEe8RUFOMxHnuAkRNFUljC4rJ9A==",
+  "dgSpecHash": "bXk7410uTrBNsgak5gPem5fx1BTy5gW4SxlU4JplpuQopkG/TBy9/aeT0/1bKhrpWKceCDb4OWdvCF0WBR8l3Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Axel\\Desktop\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTING\\MEGACASTING.csproj",
+  "projectFilePath": "C:\\Users\\Axel\\Desktop\\tout\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTING\\MEGACASTING.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Axel\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Axel\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

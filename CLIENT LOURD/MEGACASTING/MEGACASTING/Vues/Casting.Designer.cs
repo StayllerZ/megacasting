@@ -50,7 +50,6 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.buttonAjouter = new System.Windows.Forms.Button();
             this.buttonModifier = new System.Windows.Forms.Button();
             this.buttonSupprimer = new System.Windows.Forms.Button();
@@ -64,13 +63,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -280,14 +280,6 @@
             this.textBox7.Size = new System.Drawing.Size(125, 27);
             this.textBox7.TabIndex = 14;
             // 
-            // textBox8
-            // 
-            this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox8.Location = new System.Drawing.Point(813, 276);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(125, 27);
-            this.textBox8.TabIndex = 15;
-            // 
             // buttonAjouter
             // 
             this.buttonAjouter.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -295,7 +287,7 @@
             this.buttonAjouter.FlatAppearance.BorderSize = 0;
             this.buttonAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAjouter.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonAjouter.Location = new System.Drawing.Point(172, 461);
+            this.buttonAjouter.Location = new System.Drawing.Point(193, 461);
             this.buttonAjouter.Name = "buttonAjouter";
             this.buttonAjouter.Size = new System.Drawing.Size(167, 61);
             this.buttonAjouter.TabIndex = 16;
@@ -325,7 +317,7 @@
             this.buttonSupprimer.FlatAppearance.BorderSize = 0;
             this.buttonSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSupprimer.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonSupprimer.Location = new System.Drawing.Point(627, 461);
+            this.buttonSupprimer.Location = new System.Drawing.Point(600, 461);
             this.buttonSupprimer.Name = "buttonSupprimer";
             this.buttonSupprimer.Size = new System.Drawing.Size(167, 61);
             this.buttonSupprimer.TabIndex = 18;
@@ -336,7 +328,7 @@
             // textBox9
             // 
             this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox9.Location = new System.Drawing.Point(813, 309);
+            this.textBox9.Location = new System.Drawing.Point(813, 281);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(125, 27);
             this.textBox9.TabIndex = 19;
@@ -344,7 +336,7 @@
             // textBox10
             // 
             this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox10.Location = new System.Drawing.Point(813, 342);
+            this.textBox10.Location = new System.Drawing.Point(813, 314);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(125, 27);
             this.textBox10.TabIndex = 20;
@@ -352,7 +344,7 @@
             // textBox11
             // 
             this.textBox11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox11.Location = new System.Drawing.Point(813, 375);
+            this.textBox11.Location = new System.Drawing.Point(813, 348);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(125, 27);
             this.textBox11.TabIndex = 21;
@@ -360,7 +352,7 @@
             // textBox12
             // 
             this.textBox12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox12.Location = new System.Drawing.Point(813, 408);
+            this.textBox12.Location = new System.Drawing.Point(813, 381);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(125, 27);
             this.textBox12.TabIndex = 22;
@@ -425,21 +417,11 @@
             this.label6.TabIndex = 29;
             this.label6.Text = "Age max :";
             // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(707, 276);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 20);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "Date :";
-            // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(707, 309);
+            this.label8.Location = new System.Drawing.Point(707, 281);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(92, 20);
             this.label8.TabIndex = 31;
@@ -449,7 +431,7 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(707, 342);
+            this.label9.Location = new System.Drawing.Point(707, 314);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(54, 20);
             this.label9.TabIndex = 32;
@@ -459,7 +441,7 @@
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(707, 375);
+            this.label10.Location = new System.Drawing.Point(707, 348);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(59, 20);
             this.label10.TabIndex = 33;
@@ -489,24 +471,55 @@
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(707, 408);
+            this.label13.Location = new System.Drawing.Point(707, 381);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 20);
             this.label13.TabIndex = 36;
             this.label13.Text = "Contrat :";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.BackColor = System.Drawing.Color.BlueViolet;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Transparent;
+            this.button1.Location = new System.Drawing.Point(12, 461);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(167, 61);
+            this.button1.TabIndex = 37;
+            this.button1.Text = "rechercher";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.BackColor = System.Drawing.Color.BlueViolet;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Transparent;
+            this.button2.Location = new System.Drawing.Point(798, 461);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(167, 61);
+            this.button2.TabIndex = 38;
+            this.button2.Text = "tout afficher";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Casting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 555);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -520,7 +533,6 @@
             this.Controls.Add(this.buttonSupprimer);
             this.Controls.Add(this.buttonModifier);
             this.Controls.Add(this.buttonAjouter);
-            this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
@@ -549,7 +561,6 @@
         private TextBox textBox5;
         private TextBox textBox6;
         private TextBox textBox7;
-        private TextBox textBox8;
         private Button buttonAjouter;
         private Button buttonModifier;
         private Button buttonSupprimer;
@@ -557,6 +568,20 @@
         private TextBox textBox10;
         private TextBox textBox11;
         private TextBox textBox12;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private Label label6;
+        private Label label8;
+        private Label label9;
+        private Label label10;
+        private Label label11;
+        private Label label12;
+        private Label label13;
+        private Button button1;
+        private Button button2;
         private DataGridViewTextBoxColumn Identifiant;
         private DataGridViewTextBoxColumn Libelle;
         private DataGridViewTextBoxColumn Debut;
@@ -570,18 +595,5 @@
         private DataGridViewTextBoxColumn Client;
         private DataGridViewTextBoxColumn Metier;
         private DataGridViewTextBoxColumn Contrat;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
-        private Label label9;
-        private Label label10;
-        private Label label11;
-        private Label label12;
-        private Label label13;
     }
 }

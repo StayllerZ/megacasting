@@ -19,13 +19,12 @@ namespace MEGACASTING.Vues
 
         private void RemplirComboBox()
         {
-            SqlConnection connection = new SqlConnection("Server= localhost; Database= MegaCastingDB; Integrated Security=True;");
+            SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
 
             SqlCommand command = new SqlCommand
             {
                 Connection = connection,
-                CommandText = @"SELECT ID_PACK, LIBELLE_PACK
-                                FROM PACK_CASTING"
+                CommandText = @"SELECT * FROM PackCasting"
             };
 
             connection.Open();
@@ -36,11 +35,11 @@ namespace MEGACASTING.Vues
 
             while (query.Read())
             {
-                int identifier = query.GetInt32("ID_PACK");
+                int identifier = query.GetInt32("Identifiant");
                 ComboBoxClientDB commandMessage = new ComboBoxClientDB()
                 {
                     Id = identifier,
-                    Name = query.GetString("LIBELLE_PACK"),
+                    Name = query.GetString("libelle"),
                 };
                 ComboBoxList.Add(commandMessage);
             }
@@ -53,20 +52,16 @@ namespace MEGACASTING.Vues
             }
 
 
-
-
-
         }
 
         private void RemplirDatagrid()
         {
-            SqlConnection connection = new SqlConnection("Server= localhost; Database= MegaCastingDB; Integrated Security=True;");
+            SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
 
             SqlCommand command = new SqlCommand
             {
                 Connection = connection,
-                CommandText = @"SELECT *
-                                FROM CLIENT"
+                CommandText = @"SELECT * FROM Client"
             };
 
             connection.Open();
@@ -77,20 +72,19 @@ namespace MEGACASTING.Vues
 
             while (query.Read())
             {
-                int identifier = query.GetInt32("ID_CLIENT");
+                int identifier = query.GetInt32("Identifiant");
                 ClientDB commandMessage = new ClientDB()
                 {
                     Id = identifier,
-                    Name = query.GetString("NOM_CLI"),
-                    Mail = query.GetString("MAIL_CLI"),
-                    Tel = query.GetDecimal("TEL_CLI"),
-                    Login = query.GetString("LOGIN_CLI"),
-                    Password = query.GetString("PASSWORD_CLI"),
-                    Url = query.GetString("URL_CLI"),
-                    Siret = query.GetString("SIRET_CLI"),
-                    City = query.GetString("VILLE_CLI"),
-                    Id_packCasting = query.GetInt32("ID_PACK"),
-                    Nbr_rest_offre = query.GetInt32("NB_REST_OFF_CLI")
+                    Name = query.GetString("nom"),
+                    Mail = query.GetString("mail"),
+                    Tel = query.GetString("telephone"),
+                    Login = query.GetString("login"),
+                    Password = query.GetString("password"),
+                    Url = query.GetString("url"),
+                    Siret = query.GetString("siret"),
+                    City = query.GetString("ville"),
+                    Id_packCasting = query.GetInt32("IdentifiantPackCasting"),
                 };
                 ClientList.Add(commandMessage);
             }
@@ -108,8 +102,7 @@ namespace MEGACASTING.Vues
                                             client.Url,
                                             client.Siret,
                                             client.City,
-                                            client.Id_packCasting,
-                                            client.Nbr_rest_offre);
+                                            client.Id_packCasting);
             }
         }
 
@@ -136,11 +129,10 @@ namespace MEGACASTING.Vues
             string city = textBoxCity.Text;
             string login = textBoxLogin.Text;
             // string id_pack = textBoxContrat.Text;
-            string nb_rest_off = textBoxRestant.Text;
             int id_packCast = ((ComboBoxClientDB)this.comboBoxContract.SelectedItem).Id;
             
 
-            SqlConnection connection = new SqlConnection("Server= localhost; Database= MegaCastingDB; Integrated Security=True;");
+            SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
 
             SqlCommand command = new SqlCommand();
 
@@ -149,18 +141,18 @@ namespace MEGACASTING.Vues
             command.CommandText = @"INSERT INTO PARTENAIRES_DIFFUSION(NOM, MAIL_PART, TEL_PART)
                                     VALUES( @nom, @mail, @tel);";
 
-            command.CommandText = @"insert into CLIENT (NOM_CLI, TEL_CLI, MAIL_CLI, PASSWORD_CLI, URL_CLI, SIRET_CLI, LOGIN_CLI, VILLE_CLI, ID_PACK, NB_REST_OFF_CLI) values (@name, @tel, @mail, @password, @url, @siret, @login, @city, @id_pack, @nb_rest_off);";
+            command.CommandText = @"INSERT INTO Client ( NOM, MAIL, PASSWORD, URL, SIRET, LOGIN, VILLE, TELEPHONE, IDENTIFIANTPACKCASTING) 
+                        VALUES (@name, @mail, @password, @url, @siret, @login, @city, @telephone, @identifiant_pack_casting);";
 
             command.Parameters.AddWithValue("@name", nom);
             command.Parameters.AddWithValue("@mail", mail);
-            command.Parameters.AddWithValue("@tel", tel);
+            command.Parameters.AddWithValue("@telephone", tel);
             command.Parameters.AddWithValue("@password", password);
             command.Parameters.AddWithValue("@url", url);
             command.Parameters.AddWithValue("@siret", siret);
             command.Parameters.AddWithValue("@login", login);
             command.Parameters.AddWithValue("@city", city);
-            command.Parameters.AddWithValue("@id_pack", id_packCast);
-            command.Parameters.AddWithValue("@nb_rest_off", nb_rest_off);
+            command.Parameters.AddWithValue("@identifiant_pack_casting", id_packCast);
 
             connection.Open();
 
@@ -176,60 +168,51 @@ namespace MEGACASTING.Vues
         private void buttonModifier_Click(object sender, EventArgs e)
         {
             string nom = textBoxName.Text;
-            string tel = textBoxTel.Text;
             string mail = textBoxMail.Text;
+            string telephone = textBoxTel.Text;
             string password = textBoxPassword.Text;
             string url = textBoxUrl.Text;
             string siret = textBoxSiret.Text;
-            string city = textBoxCity.Text;
             string login = textBoxLogin.Text;
-            // string id_pack = textBoxContrat.Text;
-            string nb_rest_off = textBoxRestant.Text;
-            int id = Int32.Parse(textBoxID.Text);
-            int id_packCast = ((ComboBoxClientDB)this.comboBoxContract.SelectedItem).Id;
+            string ville = textBoxCity.Text;
+            int identifiant_pack_casting = ((ComboBoxClientDB)this.comboBoxContract.SelectedItem).Id;
+            int identifiant = Int32.Parse(textBoxID.Text);
 
-            SqlConnection connection = new SqlConnection("Server= localhost; Database= MegaCastingDB; Integrated Security=True;");
-
+            SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
             SqlCommand command = new SqlCommand();
-
             command.Connection = connection;
-
-            command.CommandText = @"UPDATE CLIENT SET NOM_CLI = @nom, MAIL_CLI = @mail, TEL_CLI = @tel, PASSWORD_CLI = @password, URL_CLI = @url, SIRET_CLI = @siret, LOGIN_CLI = @login, VILLE_CLI = @city, ID_PACK = @id_pack, NB_REST_OFF_CLI = @nb_rest_off WHERE ID_CLIENT = @id;";
-
+            command.CommandText = @"UPDATE Client SET NOM = @nom, MAIL = @mail, TELEPHONE = @telephone, PASSWORD = @password, URL = @url, SIRET = @siret, LOGIN = @login, VILLE = @ville, IDENTIFIANTPACKCASTING = @identifiant_pack_casting WHERE IDENTIFIANT = @identifiant;";
             command.Parameters.AddWithValue("@nom", nom);
             command.Parameters.AddWithValue("@mail", mail);
-            command.Parameters.AddWithValue("@tel", tel);
+            command.Parameters.AddWithValue("@telephone", telephone);
             command.Parameters.AddWithValue("@password", password);
             command.Parameters.AddWithValue("@url", url);
             command.Parameters.AddWithValue("@siret", siret);
             command.Parameters.AddWithValue("@login", login);
-            command.Parameters.AddWithValue("@city", city);
-            command.Parameters.AddWithValue("@id_pack", id_packCast);
-            command.Parameters.AddWithValue("@nb_rest_off", nb_rest_off);
-            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@ville", ville);
+            command.Parameters.AddWithValue("@identifiant_pack_casting", identifiant_pack_casting);
+            command.Parameters.AddWithValue("@identifiant", identifiant);
 
             connection.Open();
-
             command.ExecuteNonQuery();
-
             connection.Close();
 
             dataGridViewClient.Rows.Clear();
-
             RemplirDatagrid();
         }
+
 
         private void buttonSupprimer_Click(object sender, EventArgs e)
         {
             int id = Int32.Parse(textBoxID.Text);
 
-            SqlConnection connection = new SqlConnection("Server= localhost; Database= MegaCastingDB; Integrated Security=True;");
+            SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
 
             SqlCommand command = new SqlCommand();
 
             command.Connection = connection;
 
-            command.CommandText = @"DELETE FROM CLIENT WHERE ID_CLIENT = @id;";
+            command.CommandText = @"DELETE FROM Client WHERE identifiant = @id;";
 
             command.Parameters.AddWithValue("@id", id);
 
@@ -260,7 +243,6 @@ namespace MEGACASTING.Vues
             string city = Convert.ToString(selectedRow.Cells["City"].Value);
             string contrat = Convert.ToString(selectedRow.Cells["Contrat"].Value);
             Int32 contratInt = Convert.ToInt32(contrat);
-            string restant = Convert.ToString(selectedRow.Cells["Restant"].Value);
             textBoxID.Text = id;
             textBoxName.Text = nom;
             textBoxMail.Text = code;
@@ -270,7 +252,6 @@ namespace MEGACASTING.Vues
             textBoxUrl.Text = url;
             textBoxCity.Text = city;
             // textBoxContrat.Text = contrat;
-            textBoxRestant.Text = restant;
             textBoxSiret.Text = siret;
             comboBoxContract.SelectedIndex = contratInt- 1;
         }

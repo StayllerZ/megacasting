@@ -9,6 +9,7 @@ namespace MEGACASTING
         public Form1()
         {
             InitializeComponent();
+            OpenChildForm(new Vues.Casting());
         }
         private void OpenChildForm(Form childForm)
         {
@@ -43,7 +44,6 @@ namespace MEGACASTING
         {
             OpenChildForm(new Vues.Partenaire());
         }
-
 
     }
 }

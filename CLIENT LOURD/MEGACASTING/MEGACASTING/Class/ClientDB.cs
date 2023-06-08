@@ -22,8 +22,8 @@ namespace MEGACASTING.Class
             set { _name = value; }
         }
 
-        private decimal _tel;
-        public decimal Tel
+        private string _tel;
+        public string Tel
         {
             get { return _tel; }
             set { _tel = value; }

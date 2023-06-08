@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Axel\\Desktop\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTINGLIB\\MEGACASTINGLIB.csproj",
+      "projectUniqueName": "C:\\Users\\Axel\\Desktop\\tout\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTINGLIB\\MEGACASTINGLIB.csproj",
       "projectName": "MEGACASTINGLIB",
-      "projectPath": "C:\\Users\\Axel\\Desktop\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTINGLIB\\MEGACASTINGLIB.csproj",
+      "projectPath": "C:\\Users\\Axel\\Desktop\\tout\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTINGLIB\\MEGACASTINGLIB.csproj",
       "packagesPath": "C:\\Users\\Axel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Axel\\Desktop\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTINGLIB\\obj\\",
+      "outputPath": "C:\\Users\\Axel\\Desktop\\tout\\MEGACASTING\\CLIENT LOURD\\MEGACASTING\\MEGACASTINGLIB\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -101,6 +101,8 @@ namespace MEGACASTING.Class
             set { _id_contrat = value; }
         }
 
+        public DateTime? Update { get; set; }
+
 
 
         public CastingDB()

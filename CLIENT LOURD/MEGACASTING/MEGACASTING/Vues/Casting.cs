@@ -31,7 +31,6 @@ namespace MEGACASTING.Vues
             string City = textBox5.Text;
             decimal AgeMini = Decimal.Parse(textBox6.Text);
             decimal AgeMax = Decimal.Parse(textBox7.Text);
-            DateTime DateDiffusion = DateTime.Parse(textBox8.Text);
             string Description = textBox9.Text;
             int IdClient = Int32.Parse(textBox10.Text);
             int IdMetier = Int32.Parse(textBox11.Text);
@@ -39,28 +38,26 @@ namespace MEGACASTING.Vues
 
 
 
-            SqlConnection connection = new SqlConnection("Server= localhost; Database= MegaCastingDB; Integrated Security=True;");
+            SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
 
             SqlCommand command = new SqlCommand();
 
             command.Connection = connection;
 
-            command.CommandText = @"insert into OFFRE (LIBELLE_OFF, DESC_OFF, DATE_DEB_CAST, DATE_FIN_CAST, REFERENCE_OFFRE, LOCALISATION_OFF, AGEMIN, AGEMAX, DATE_OFFRE, ID_CONTRAT, ID_CLIENT, ID_MET) values( @LIBELLE_OFF, @DESC_OFF, @DATE_DEB_CAST, @DATE_FIN_CAST, @REFERENCE_OFFRE, @LOCALISATION_OFF, @AGEMIN, @AGEMAX, @DATE_OFFRE, @ID_CONTRAT, @ID_CLIENT, @ID_MET);";
+            command.CommandText = @"insert into OFFRE (libelle, description, date_debut_casting, date_fin_casting, reference, localisation, age_minimum, age_maximum, IdentifiantTypeContrat, IdentifiantClient, IdentifiantMetier) values( @libelle, @description, @date_debut_casting, @date_fin_casting, @reference, @localisation, @age_minimum, @age_maximum, @IdentifiantTypeContrat, @IdentifiantClient, @IdentifiantMetier);";
 
-   
+            command.Parameters.AddWithValue("@libelle", Libelle);
+            command.Parameters.AddWithValue("@description", Description);
+            command.Parameters.AddWithValue("@date_debut_casting", DateDebutCasting);
+            command.Parameters.AddWithValue("@date_fin_casting", DateTimeFinCasting);
+            command.Parameters.AddWithValue("@reference", Reference);
+            command.Parameters.AddWithValue("@localisation", City);
+            command.Parameters.AddWithValue("@age_minimum", AgeMini);
+            command.Parameters.AddWithValue("@age_maximum", AgeMax);
+            command.Parameters.AddWithValue("@IdentifiantTypeContrat", IdContrat);
+            command.Parameters.AddWithValue("@IdentifiantClient", IdClient);
+            command.Parameters.AddWithValue("@IdentifiantMetier", IdMetier);
 
-            command.Parameters.AddWithValue("@LIBELLE_OFF", Libelle);
-            command.Parameters.AddWithValue("@DESC_OFF", Description);
-            command.Parameters.AddWithValue("@DATE_DEB_CAST", DateDebutCasting);
-            command.Parameters.AddWithValue("@DATE_FIN_CAST", DateTimeFinCasting);
-            command.Parameters.AddWithValue("@REFERENCE_OFFRE", Reference);
-            command.Parameters.AddWithValue("@LOCALISATION_OFF", City);
-            command.Parameters.AddWithValue("@AGEMIN", AgeMini);
-            command.Parameters.AddWithValue("@AGEMAX", AgeMax);
-            command.Parameters.AddWithValue("@DATE_OFFRE", DateDiffusion);
-            command.Parameters.AddWithValue("@ID_CONTRAT", IdContrat);
-            command.Parameters.AddWithValue("@ID_CLIENT", IdClient);
-            command.Parameters.AddWithValue("@ID_MET", IdMetier);
 
             connection.Open();
 
@@ -83,33 +80,33 @@ namespace MEGACASTING.Vues
             string City = textBox5.Text;
             decimal AgeMini = Decimal.Parse(textBox6.Text);
             decimal AgeMax = Decimal.Parse(textBox7.Text);
-            DateTime DateDiffusion = DateTime.Parse(textBox8.Text);
             string Description = textBox9.Text;
             int IdClient = Int32.Parse(textBox10.Text);
             int IdMetier = Int32.Parse(textBox11.Text);
             int IdContrat = Int32.Parse(textBox12.Text);
+            string ActualDate = DateTime.Now.ToString();
 
-            SqlConnection connection = new SqlConnection("Server= localhost; Database= MegaCastingDB; Integrated Security=True;");
+            SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
 
             SqlCommand command = new SqlCommand();
 
             command.Connection = connection;
 
-            command.CommandText = @"UPDATE OFFRE SET LIBELLE_OFF = @LIBELLE_OFF, DESC_OFF = @DESC_OFF, DATE_DEB_CAST = @DATE_DEB_CAST, DATE_FIN_CAST = @DATE_FIN_CAST, REFERENCE_OFFRE = @REFERENCE_OFFRE, LOCALISATION_OFF = @LOCALISATION_OFF, AGEMIN = @AGEMIN, AGEMAX = @AGEMAX, DATE_OFFRE = @DATE_OFFRE, ID_CONTRAT = @ID_CONTRAT, ID_CLIENT = @ID_CLIENT,ID_MET = @ID_MET  WHERE ID_OFFRE = @ID;";
+            command.CommandText = @"UPDATE OFFRE SET libelle = @libelle, description = @description, date_debut_casting = @date_debut_casting, date_fin_casting = @date_fin_casting, reference = @reference, localisation = @localisation, age_minimum = @age_minimum, age_maximum = @age_maximum, IdentifiantTypeContrat = @IdentifiantTypeContrat, IdentifiantClient = @IdentifiantClient, IdentifiantMetier = @IdentifiantMetier WHERE Identifiant = @Identifiant;";
 
-            command.Parameters.AddWithValue("@LIBELLE_OFF", Libelle);
-            command.Parameters.AddWithValue("@DESC_OFF", Description);
-            command.Parameters.AddWithValue("@DATE_DEB_CAST", DateDebutCasting);
-            command.Parameters.AddWithValue("@DATE_FIN_CAST", DateTimeFinCasting);
-            command.Parameters.AddWithValue("@REFERENCE_OFFRE", Reference);
-            command.Parameters.AddWithValue("@LOCALISATION_OFF", City);
-            command.Parameters.AddWithValue("@AGEMIN", AgeMini);
-            command.Parameters.AddWithValue("@AGEMAX", AgeMax);
-            command.Parameters.AddWithValue("@DATE_OFFRE", DateDiffusion);
-            command.Parameters.AddWithValue("@ID_CONTRAT", IdContrat);
-            command.Parameters.AddWithValue("@ID_CLIENT", IdClient);
-            command.Parameters.AddWithValue("@ID_MET", IdMetier);
-            command.Parameters.AddWithValue("@ID", ID);
+            command.Parameters.AddWithValue("@libelle", Libelle);
+            command.Parameters.AddWithValue("@description", Description);
+            command.Parameters.AddWithValue("@date_debut_casting", DateDebutCasting);
+            command.Parameters.AddWithValue("@date_fin_casting", DateTimeFinCasting);
+            command.Parameters.AddWithValue("@reference", Reference);
+            command.Parameters.AddWithValue("@localisation", City);
+            command.Parameters.AddWithValue("@age_minimum", AgeMini);
+            command.Parameters.AddWithValue("@age_maximum", AgeMax);
+            command.Parameters.AddWithValue("@IdentifiantTypeContrat", IdContrat);
+            command.Parameters.AddWithValue("@IdentifiantClient", IdClient);
+            command.Parameters.AddWithValue("@IdentifiantMetier", IdMetier);
+            command.Parameters.AddWithValue("@Identifiant", ID);
+
 
             connection.Open();
 
@@ -126,13 +123,15 @@ namespace MEGACASTING.Vues
         {
             int id = Int32.Parse(textBoxID.Text);
 
-            SqlConnection connection = new SqlConnection("Server= localhost; Database= MegaCastingDB; Integrated Security=True;");
+            string actualDate = DateTime.Now.ToString();
+
+            SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
 
             SqlCommand command = new SqlCommand();
 
             command.Connection = connection;
 
-            command.CommandText = @"DELETE FROM OFFRE WHERE ID_OFFRE = @id;";
+            command.CommandText = @"DELETE FROM Offre where identifiant = @id;";
 
             command.Parameters.AddWithValue("@id", id);
 
@@ -173,7 +172,6 @@ namespace MEGACASTING.Vues
             textBox5.Text = Ville;
             textBox6.Text = AgeMin;
             textBox7.Text = AgeMax;
-            textBox8.Text = Date;
             textBox9.Text = Desc;
             textBox10.Text = Client;
             textBox11.Text = Metier;
@@ -182,13 +180,12 @@ namespace MEGACASTING.Vues
 
         private void RemplirDatagrid()
         {
-            SqlConnection connection = new SqlConnection("Server= localhost; Database= MegaCastingDB; Integrated Security=True;");
+            SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
 
             SqlCommand command = new SqlCommand
             {
                 Connection = connection,
-                CommandText = @"SELECT *
-                                FROM OFFRE"
+                CommandText = @"SELECT * FROM Offre"
             };
 
             connection.Open();
@@ -199,24 +196,92 @@ namespace MEGACASTING.Vues
 
             while (query.Read())
             {
-                int identifier = query.GetInt32("ID_OFFRE");
-                CastingDB commandMessage = new CastingDB()
+                    int identifier = query.GetInt32("identifiant");
+                        CastingDB commandMessage = new CastingDB()
+                        {
+                            ID = identifier,
+                            Libelle = query.GetString("libelle"),
+                            //DateDiffusion = query.GetDateTime("date_diffusion"),
+                            DateDebutCasting = query.GetDateTime("date_debut_casting"),
+                            DateTimeFinCasting = query.GetDateTime("date_fin_casting"),
+                            Reference = query.GetString("reference"),
+                            City = query.GetString("localisation"),
+                            AgeMini = query.GetInt32("age_minimum"),
+                            AgeMax = query.GetInt32("age_maximum"),
+                            Description = query.GetString("description"),
+                            IdClient = query.GetInt32("IdentifiantClient"),
+                            IdMetier = query.GetInt32("IdentifiantMetier"),
+                            IdContrat = query.GetInt32("IdentifiantTypeContrat"),
+
+                        };
+                        Castinglist.Add(commandMessage);            
+            }
+
+            connection.Close();
+
+            foreach (CastingDB casting in Castinglist)
+            {
+                dataGridViewClient.DefaultCellStyle.NullValue = "Aucune modification";
+                dataGridViewClient.Rows.Add(casting.ID,
+                                            casting.Libelle,
+                                            casting.DateDebutCasting,
+                                            casting.DateTimeFinCasting,
+                                            casting.Reference,
+                                            casting.City,
+                                            casting.AgeMini,
+                                            casting.AgeMax,
+                                            casting.DateDiffusion,
+                                            casting.Description,
+                                            casting.IdClient,
+                                            casting.IdMetier,
+                                            casting.IdContrat,
+                                            casting.Update
+                                            );
+            }
+        }
+        private void RechercheByLibelle()
+        {
+            string libelleFind = textBox1.Text;
+            System.Data.SqlClient.SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
+
+            SqlCommand command = new SqlCommand
+            {
+                Connection = connection,
+                CommandText = @"SELECT *
+                                FROM OFFRE WHERE LIBELLE_OFF = @libelle"
+            };
+            command.Parameters.AddWithValue("@libelle", libelleFind);
+
+            connection.Open();
+
+            SqlDataReader query = command.ExecuteReader();
+
+            List<CastingDB> Castinglist = new List<CastingDB>();
+
+            while (query.Read())
+            {
+                if (query["DeleteDate"] != DBNull.Value)
                 {
-                    ID = identifier,
-                    Libelle = query.GetString("LIBELLE_OFF"),
-                    DateDiffusion = query.GetDateTime("DATE_OFFRE"),
-                    DateDebutCasting = query.GetDateTime("DATE_DEB_CAST"),
-                    DateTimeFinCasting = query.GetDateTime("DATE_FIN_CAST"),
-                    Reference = query.GetString("REFERENCE_OFFRE"),
-                    City = query.GetString("LOCALISATION_OFF"),
-                    AgeMini = (int)query.GetDecimal("AGEMIN"),
-                    AgeMax = (int)query.GetDecimal("AGEMAX"),
-                    Description = query.GetString("DESC_OFF"),
-                    IdClient = query.GetInt32("ID_CLIENT"),
-                    IdMetier = query.GetInt32("ID_MET"),
-                    IdContrat = query.GetInt32("ID_CONTRAT")
-                };
-                Castinglist.Add(commandMessage);
+                    int identifier = query.GetInt32("ID_OFFRE");
+                    CastingDB commandMessage = new CastingDB()
+                    {
+                        ID = identifier,
+                        Libelle = query.GetString("LIBELLE_OFF"),
+                        DateDiffusion = query.GetDateTime("DATE_OFFRE"),
+                        DateDebutCasting = query.GetDateTime("DATE_DEB_CAST"),
+                        DateTimeFinCasting = query.GetDateTime("DATE_FIN_CAST"),
+                        Reference = query.GetString("REFERENCE_OFFRE"),
+                        City = query.GetString("LOCALISATION_OFF"),
+                        AgeMini = (int)query.GetDecimal("AGEMIN"),
+                        AgeMax = (int)query.GetDecimal("AGEMAX"),
+                        Description = query.GetString("DESC_OFF"),
+                        IdClient = query.GetInt32("ID_CLIENT"),
+                        IdMetier = query.GetInt32("ID_MET"),
+                        IdContrat = query.GetInt32("ID_CONTRAT")
+                    };
+                    Castinglist.Add(commandMessage);
+                }
+
             }
 
             connection.Close();
@@ -240,5 +305,22 @@ namespace MEGACASTING.Vues
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridViewClient.Rows.Clear();
+            RechercheByLibelle();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridViewClient.Rows.Clear();
+            RemplirDatagrid();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }

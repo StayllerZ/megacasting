@@ -39,7 +39,6 @@
             this.Siret = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contrat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Restant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonAjouter = new System.Windows.Forms.Button();
             this.buttonModifier = new System.Windows.Forms.Button();
             this.buttonSupprimer = new System.Windows.Forms.Button();
@@ -62,8 +61,6 @@
             this.textBoxCity = new System.Windows.Forms.TextBox();
             this.labelCity = new System.Windows.Forms.Label();
             this.labelContrat = new System.Windows.Forms.Label();
-            this.textBoxRestant = new System.Windows.Forms.TextBox();
-            this.labelRestant = new System.Windows.Forms.Label();
             this.comboBoxContract = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).BeginInit();
             this.SuspendLayout();
@@ -89,8 +86,7 @@
             this.Url,
             this.Siret,
             this.City,
-            this.Contrat,
-            this.Restant});
+            this.Contrat});
             this.dataGridViewClient.GridColor = System.Drawing.Color.Black;
             this.dataGridViewClient.Location = new System.Drawing.Point(31, 56);
             this.dataGridViewClient.Name = "dataGridViewClient";
@@ -183,14 +179,6 @@
             this.Contrat.Name = "Contrat";
             this.Contrat.ReadOnly = true;
             this.Contrat.Width = 65;
-            // 
-            // Restant
-            // 
-            this.Restant.HeaderText = "Restant";
-            this.Restant.MinimumWidth = 6;
-            this.Restant.Name = "Restant";
-            this.Restant.ReadOnly = true;
-            this.Restant.Width = 65;
             // 
             // buttonAjouter
             // 
@@ -409,24 +397,6 @@
             this.labelContrat.TabIndex = 25;
             this.labelContrat.Text = "Contrat :";
             // 
-            // textBoxRestant
-            // 
-            this.textBoxRestant.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxRestant.Location = new System.Drawing.Point(817, 412);
-            this.textBoxRestant.Name = "textBoxRestant";
-            this.textBoxRestant.Size = new System.Drawing.Size(125, 27);
-            this.textBoxRestant.TabIndex = 26;
-            // 
-            // labelRestant
-            // 
-            this.labelRestant.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelRestant.AutoSize = true;
-            this.labelRestant.Location = new System.Drawing.Point(729, 412);
-            this.labelRestant.Name = "labelRestant";
-            this.labelRestant.Size = new System.Drawing.Size(65, 20);
-            this.labelRestant.TabIndex = 27;
-            this.labelRestant.Text = "Restant :";
-            // 
             // comboBoxContract
             // 
             this.comboBoxContract.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -443,8 +413,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 555);
             this.Controls.Add(this.comboBoxContract);
-            this.Controls.Add(this.labelRestant);
-            this.Controls.Add(this.textBoxRestant);
             this.Controls.Add(this.labelContrat);
             this.Controls.Add(this.labelCity);
             this.Controls.Add(this.textBoxCity);
@@ -502,6 +470,7 @@
         private TextBox textBoxCity;
         private Label labelCity;
         private Label labelContrat;
+        private ComboBox comboBoxContract;
         private DataGridViewTextBoxColumn Identifiant;
         private DataGridViewTextBoxColumn Nom;
         private DataGridViewTextBoxColumn Mail;
@@ -512,9 +481,5 @@
         private DataGridViewTextBoxColumn Siret;
         private DataGridViewTextBoxColumn City;
         private DataGridViewTextBoxColumn Contrat;
-        private DataGridViewTextBoxColumn Restant;
-        private TextBox textBoxRestant;
-        private Label labelRestant;
-        private ComboBox comboBoxContract;
     }
 }
