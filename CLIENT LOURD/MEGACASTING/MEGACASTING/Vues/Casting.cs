@@ -18,8 +18,52 @@ namespace MEGACASTING.Vues
         public Casting()
         {
             InitializeComponent();
+            RemplirComboBox();
             RemplirDatagrid();
         }
+
+
+
+        private void RemplirComboBox()
+        {
+            SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
+
+            SqlCommand command = new SqlCommand
+            {
+                Connection = connection,
+                CommandText = @"SELECT * FROM Experience"
+            };
+
+            connection.Open();
+
+            SqlDataReader query = command.ExecuteReader();
+
+            List<ComboBoxClientDB> ComboBoxList = new List<ComboBoxClientDB>();
+
+            while (query.Read())
+            {
+                int identifier = query.GetInt32("identifiant");
+                ComboBoxClientDB commandMessage = new ComboBoxClientDB()
+                {
+                    Id = identifier,
+                    Name = query.GetString("libelle"),
+                };
+                ComboBoxList.Add(commandMessage);
+            }
+
+            connection.Close();
+
+            foreach (ComboBoxClientDB ComboItem in ComboBoxList)
+            {
+                comboBoxContract.Items.Add(ComboItem);
+            }
+
+
+        }
+
+
+
+
 
         private void buttonAjouter_Click(object sender, EventArgs e)
         {
@@ -35,6 +79,7 @@ namespace MEGACASTING.Vues
             int IdClient = Int32.Parse(textBox10.Text);
             int IdMetier = Int32.Parse(textBox11.Text);
             int IdContrat = Int32.Parse(textBox12.Text);
+            int id_experience = ((ComboBoxClientDB)this.comboBoxContract.SelectedItem).Id;
 
 
 
@@ -44,7 +89,7 @@ namespace MEGACASTING.Vues
 
             command.Connection = connection;
 
-            command.CommandText = @"insert into OFFRE (libelle, description, date_debut_casting, date_fin_casting, reference, localisation, age_minimum, age_maximum, IdentifiantTypeContrat, IdentifiantClient, IdentifiantMetier) values( @libelle, @description, @date_debut_casting, @date_fin_casting, @reference, @localisation, @age_minimum, @age_maximum, @IdentifiantTypeContrat, @IdentifiantClient, @IdentifiantMetier);";
+            command.CommandText = @"insert into OFFRE (libelle, description, date_debut_casting, date_fin_casting, reference, localisation, age_minimum, age_maximum, IdentifiantTypeContrat, IdentifiantClient, IdentifiantMetier, id_experience) values( @libelle, @description, @date_debut_casting, @date_fin_casting, @reference, @localisation, @age_minimum, @age_maximum, @IdentifiantTypeContrat, @IdentifiantClient, @IdentifiantMetier, @Id_experience);";
 
             command.Parameters.AddWithValue("@libelle", Libelle);
             command.Parameters.AddWithValue("@description", Description);
@@ -57,7 +102,7 @@ namespace MEGACASTING.Vues
             command.Parameters.AddWithValue("@IdentifiantTypeContrat", IdContrat);
             command.Parameters.AddWithValue("@IdentifiantClient", IdClient);
             command.Parameters.AddWithValue("@IdentifiantMetier", IdMetier);
-
+            command.Parameters.AddWithValue("@Id_experience", id_experience);
 
             connection.Open();
 
@@ -85,6 +130,7 @@ namespace MEGACASTING.Vues
             int IdMetier = Int32.Parse(textBox11.Text);
             int IdContrat = Int32.Parse(textBox12.Text);
             string ActualDate = DateTime.Now.ToString();
+            int id_experience = ((ComboBoxClientDB)this.comboBoxContract.SelectedItem).Id;
 
             SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
 
@@ -92,7 +138,7 @@ namespace MEGACASTING.Vues
 
             command.Connection = connection;
 
-            command.CommandText = @"UPDATE OFFRE SET libelle = @libelle, description = @description, date_debut_casting = @date_debut_casting, date_fin_casting = @date_fin_casting, reference = @reference, localisation = @localisation, age_minimum = @age_minimum, age_maximum = @age_maximum, IdentifiantTypeContrat = @IdentifiantTypeContrat, IdentifiantClient = @IdentifiantClient, IdentifiantMetier = @IdentifiantMetier WHERE Identifiant = @Identifiant;";
+            command.CommandText = @"UPDATE OFFRE SET libelle = @libelle, description = @description, date_debut_casting = @date_debut_casting, date_fin_casting = @date_fin_casting, reference = @reference, localisation = @localisation, age_minimum = @age_minimum, age_maximum = @age_maximum, IdentifiantTypeContrat = @IdentifiantTypeContrat, IdentifiantClient = @IdentifiantClient, IdentifiantMetier = @IdentifiantMetier, id_experience = @Id_experience WHERE Identifiant = @Identifiant;";
 
             command.Parameters.AddWithValue("@libelle", Libelle);
             command.Parameters.AddWithValue("@description", Description);
@@ -106,6 +152,7 @@ namespace MEGACASTING.Vues
             command.Parameters.AddWithValue("@IdentifiantClient", IdClient);
             command.Parameters.AddWithValue("@IdentifiantMetier", IdMetier);
             command.Parameters.AddWithValue("@Identifiant", ID);
+            command.Parameters.AddWithValue("@Id_experience", id_experience);
 
 
             connection.Open();
@@ -164,6 +211,7 @@ namespace MEGACASTING.Vues
             string Client = Convert.ToString(selectedRow.Cells["Client"].Value);
             string Metier = Convert.ToString(selectedRow.Cells["Metier"].Value);
             string Contrat = Convert.ToString(selectedRow.Cells["Contrat"].Value);
+            Int32 experienceInt = Convert.ToInt32(selectedRow.Cells["Experience"].Value);
             textBoxID.Text = id;
             textBox1.Text = Libelle;
             textBox2.Text = Debut;
@@ -176,6 +224,7 @@ namespace MEGACASTING.Vues
             textBox10.Text = Client;
             textBox11.Text = Metier;
             textBox12.Text = Contrat;
+            comboBoxContract.SelectedIndex = experienceInt - 1;
         }
 
         private void RemplirDatagrid()
@@ -212,6 +261,7 @@ namespace MEGACASTING.Vues
                             IdClient = query.GetInt32("IdentifiantClient"),
                             IdMetier = query.GetInt32("IdentifiantMetier"),
                             IdContrat = query.GetInt32("IdentifiantTypeContrat"),
+                            Id_experience = query.GetInt32("id_experience"),
 
                         };
                         Castinglist.Add(commandMessage);            
@@ -221,7 +271,7 @@ namespace MEGACASTING.Vues
 
             foreach (CastingDB casting in Castinglist)
             {
-                dataGridViewClient.DefaultCellStyle.NullValue = "Aucune modification";
+                //dataGridViewClient.DefaultCellStyle.NullValue = "Aucune modification";
                 dataGridViewClient.Rows.Add(casting.ID,
                                             casting.Libelle,
                                             casting.DateDebutCasting,
@@ -235,7 +285,7 @@ namespace MEGACASTING.Vues
                                             casting.IdClient,
                                             casting.IdMetier,
                                             casting.IdContrat,
-                                            casting.Update
+                                            casting.Id_experience
                                             );
             }
         }

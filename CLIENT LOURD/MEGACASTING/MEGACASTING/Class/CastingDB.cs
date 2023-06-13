@@ -101,6 +101,13 @@ namespace MEGACASTING.Class
             set { _id_contrat = value; }
         }
 
+        private int _id_experience;
+        public int Id_experience
+        {
+            get { return _id_experience; }
+            set { _id_experience = value; }
+        }
+
         public DateTime? Update { get; set; }
 
 

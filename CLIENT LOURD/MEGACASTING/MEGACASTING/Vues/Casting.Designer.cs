@@ -42,6 +42,7 @@
             this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Metier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contrat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Experience = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -71,6 +72,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.comboBoxContract = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,7 +101,8 @@
             this.Desc,
             this.Client,
             this.Metier,
-            this.Contrat});
+            this.Contrat,
+            this.Experience});
             this.dataGridViewClient.GridColor = System.Drawing.Color.Black;
             this.dataGridViewClient.Location = new System.Drawing.Point(12, 32);
             this.dataGridViewClient.Name = "dataGridViewClient";
@@ -216,6 +220,14 @@
             this.Contrat.ReadOnly = true;
             this.Contrat.Width = 55;
             // 
+            // Experience
+            // 
+            this.Experience.HeaderText = "Experience";
+            this.Experience.MinimumWidth = 6;
+            this.Experience.Name = "Experience";
+            this.Experience.ReadOnly = true;
+            this.Experience.Width = 125;
+            // 
             // textBoxID
             // 
             this.textBoxID.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -287,7 +299,7 @@
             this.buttonAjouter.FlatAppearance.BorderSize = 0;
             this.buttonAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAjouter.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonAjouter.Location = new System.Drawing.Point(193, 461);
+            this.buttonAjouter.Location = new System.Drawing.Point(205, 461);
             this.buttonAjouter.Name = "buttonAjouter";
             this.buttonAjouter.Size = new System.Drawing.Size(167, 61);
             this.buttonAjouter.TabIndex = 16;
@@ -507,11 +519,33 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // comboBoxContract
+            // 
+            this.comboBoxContract.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxContract.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxContract.FormattingEnabled = true;
+            this.comboBoxContract.Location = new System.Drawing.Point(813, 414);
+            this.comboBoxContract.Name = "comboBoxContract";
+            this.comboBoxContract.Size = new System.Drawing.Size(125, 28);
+            this.comboBoxContract.TabIndex = 39;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(707, 417);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(88, 20);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "Experience :";
+            // 
             // Casting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 555);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.comboBoxContract);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label13);
@@ -595,5 +629,8 @@
         private DataGridViewTextBoxColumn Client;
         private DataGridViewTextBoxColumn Metier;
         private DataGridViewTextBoxColumn Contrat;
+        private DataGridViewTextBoxColumn Experience;
+        private ComboBox comboBoxContract;
+        private Label label7;
     }
 }
