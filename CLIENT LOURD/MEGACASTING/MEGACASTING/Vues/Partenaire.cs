@@ -67,7 +67,6 @@ namespace MEGACASTING.Vues
             string nom = textBoxName.Text;
             string tel = textBoxTel.Text;
             string mail = textBoxMail.Text;
-            int id = Int32.Parse(textBoxID.Text);
 
             SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
 
@@ -98,11 +97,9 @@ namespace MEGACASTING.Vues
             int selectedrowindex = dataGridViewPartenaire.SelectedCells[0].RowIndex;
             DataGridViewRow selectedRow = dataGridViewPartenaire.Rows[selectedrowindex];
 
-            string id = Convert.ToString(selectedRow.Cells["Identifiant"].Value);
             string nom = Convert.ToString(selectedRow.Cells["Nom"].Value);
             string code = Convert.ToString(selectedRow.Cells["Mail"].Value);
             string tel = Convert.ToString(selectedRow.Cells["Telephone"].Value);
-            textBoxID.Text = id;
             textBoxName.Text = nom;
             textBoxMail.Text = code;
             textBoxTel.Text = tel;
@@ -110,8 +107,10 @@ namespace MEGACASTING.Vues
 
         private void buttonSupprimer_Click(object sender, EventArgs e)
         {
-            int id = Int32.Parse(textBoxID.Text);
-
+            int selectedrowindex = dataGridViewPartenaire.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = dataGridViewPartenaire.Rows[selectedrowindex];
+            string idstr = Convert.ToString(selectedRow.Cells["Identifiant"].Value);
+            int id = Int32.Parse(idstr);
             SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
 
             SqlCommand command = new SqlCommand();
@@ -138,7 +137,10 @@ namespace MEGACASTING.Vues
             string nom = textBoxName.Text;
             string tel = textBoxTel.Text;
             string mail = textBoxMail.Text;
-            int id = Int32.Parse(textBoxID.Text);
+            int selectedrowindex = dataGridViewPartenaire.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = dataGridViewPartenaire.Rows[selectedrowindex];
+            string idstr = Convert.ToString(selectedRow.Cells["Identifiant"].Value);
+            int id = Int32.Parse(idstr);
 
             SqlConnection connection = new SqlConnection("Server=10.192.86.4;Database=Commandes;User Id=sa;Password=root;");
 
@@ -162,6 +164,11 @@ namespace MEGACASTING.Vues
             dataGridViewPartenaire.Rows.Clear();
 
             RemplirDatagrid();
+        }
+
+        private void textBoxMail_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

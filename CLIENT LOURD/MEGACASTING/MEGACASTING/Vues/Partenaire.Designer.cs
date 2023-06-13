@@ -36,11 +36,9 @@
             this.buttonAjouter = new System.Windows.Forms.Button();
             this.buttonSupprimer = new System.Windows.Forms.Button();
             this.buttonModifier = new System.Windows.Forms.Button();
-            this.textBoxID = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxMail = new System.Windows.Forms.TextBox();
             this.textBoxTel = new System.Windows.Forms.TextBox();
-            this.labelID = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.labelMail = new System.Windows.Forms.Label();
             this.labelTel = new System.Windows.Forms.Label();
@@ -153,14 +151,6 @@
             this.buttonModifier.UseVisualStyleBackColor = false;
             this.buttonModifier.Click += new System.EventHandler(this.buttonModifier_Click);
             // 
-            // textBoxID
-            // 
-            this.textBoxID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxID.Location = new System.Drawing.Point(722, 110);
-            this.textBoxID.Name = "textBoxID";
-            this.textBoxID.Size = new System.Drawing.Size(125, 27);
-            this.textBoxID.TabIndex = 4;
-            // 
             // textBoxName
             // 
             this.textBoxName.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -172,28 +162,19 @@
             // textBoxMail
             // 
             this.textBoxMail.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxMail.Location = new System.Drawing.Point(722, 231);
+            this.textBoxMail.Location = new System.Drawing.Point(722, 211);
             this.textBoxMail.Name = "textBoxMail";
             this.textBoxMail.Size = new System.Drawing.Size(125, 27);
             this.textBoxMail.TabIndex = 6;
+            this.textBoxMail.TextChanged += new System.EventHandler(this.textBoxMail_TextChanged);
             // 
             // textBoxTel
             // 
             this.textBoxTel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxTel.Location = new System.Drawing.Point(722, 282);
+            this.textBoxTel.Location = new System.Drawing.Point(722, 256);
             this.textBoxTel.Name = "textBoxTel";
             this.textBoxTel.Size = new System.Drawing.Size(125, 27);
             this.textBoxTel.TabIndex = 7;
-            // 
-            // labelID
-            // 
-            this.labelID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelID.AutoSize = true;
-            this.labelID.Location = new System.Drawing.Point(627, 117);
-            this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(31, 20);
-            this.labelID.TabIndex = 8;
-            this.labelID.Text = "ID :";
             // 
             // labelName
             // 
@@ -209,7 +190,7 @@
             // 
             this.labelMail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelMail.AutoSize = true;
-            this.labelMail.Location = new System.Drawing.Point(627, 231);
+            this.labelMail.Location = new System.Drawing.Point(627, 211);
             this.labelMail.Name = "labelMail";
             this.labelMail.Size = new System.Drawing.Size(45, 20);
             this.labelMail.TabIndex = 10;
@@ -219,7 +200,7 @@
             // 
             this.labelTel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelTel.AutoSize = true;
-            this.labelTel.Location = new System.Drawing.Point(627, 285);
+            this.labelTel.Location = new System.Drawing.Point(627, 256);
             this.labelTel.Name = "labelTel";
             this.labelTel.Size = new System.Drawing.Size(85, 20);
             this.labelTel.TabIndex = 11;
@@ -233,11 +214,9 @@
             this.Controls.Add(this.labelTel);
             this.Controls.Add(this.labelMail);
             this.Controls.Add(this.labelName);
-            this.Controls.Add(this.labelID);
             this.Controls.Add(this.textBoxTel);
             this.Controls.Add(this.textBoxMail);
             this.Controls.Add(this.textBoxName);
-            this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.buttonModifier);
             this.Controls.Add(this.buttonSupprimer);
             this.Controls.Add(this.buttonAjouter);
@@ -256,11 +235,9 @@
         private Button buttonAjouter;
         private Button buttonSupprimer;
         private Button buttonModifier;
-        private TextBox textBoxID;
         private TextBox textBoxName;
         private TextBox textBoxMail;
         private TextBox textBoxTel;
-        private Label labelID;
         private Label labelName;
         private Label labelMail;
         private Label labelTel;

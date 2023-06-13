@@ -248,7 +248,7 @@ namespace MEGACASTING.Vues
             {
                 Connection = connection,
                 CommandText = @"SELECT *
-                                FROM OFFRE WHERE LIBELLE_OFF = @libelle"
+                                FROM OFFRE WHERE libelle = @libelle"
             };
             command.Parameters.AddWithValue("@libelle", libelleFind);
 
@@ -260,28 +260,23 @@ namespace MEGACASTING.Vues
 
             while (query.Read())
             {
-                if (query["DeleteDate"] != DBNull.Value)
+                int identifier = query.GetInt32("identifiant");
+                CastingDB commandMessage = new CastingDB()
                 {
-                    int identifier = query.GetInt32("ID_OFFRE");
-                    CastingDB commandMessage = new CastingDB()
-                    {
-                        ID = identifier,
-                        Libelle = query.GetString("LIBELLE_OFF"),
-                        DateDiffusion = query.GetDateTime("DATE_OFFRE"),
-                        DateDebutCasting = query.GetDateTime("DATE_DEB_CAST"),
-                        DateTimeFinCasting = query.GetDateTime("DATE_FIN_CAST"),
-                        Reference = query.GetString("REFERENCE_OFFRE"),
-                        City = query.GetString("LOCALISATION_OFF"),
-                        AgeMini = (int)query.GetDecimal("AGEMIN"),
-                        AgeMax = (int)query.GetDecimal("AGEMAX"),
-                        Description = query.GetString("DESC_OFF"),
-                        IdClient = query.GetInt32("ID_CLIENT"),
-                        IdMetier = query.GetInt32("ID_MET"),
-                        IdContrat = query.GetInt32("ID_CONTRAT")
-                    };
-                    Castinglist.Add(commandMessage);
-                }
-
+                     ID = identifier,
+                    Libelle = query.GetString("libelle"),
+                    DateDebutCasting = query.GetDateTime("date_debut_casting"),
+                    DateTimeFinCasting = query.GetDateTime("date_fin_casting"),
+                    Reference = query.GetString("reference"),
+                    City = query.GetString("localisation"),
+                    AgeMini = query.GetInt32("age_minimum"),
+                    AgeMax = query.GetInt32("age_maximum"),
+                    Description = query.GetString("description"),
+                    IdClient = query.GetInt32("IdentifiantClient"),
+                    IdMetier = query.GetInt32("IdentifiantMetier"),
+                    IdContrat = query.GetInt32("IdentifiantTypeContrat")
+                };
+                Castinglist.Add(commandMessage);
             }
 
             connection.Close();
